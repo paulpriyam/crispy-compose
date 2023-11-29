@@ -1,11 +1,11 @@
 package com.example.compose.day8.navigation
 
-enum class Screens {
+enum class MovieScreens {
     ListScreen,
     DetailScreen;
 
     companion object {
-        fun fromRoute(route: String?): Screens =
+        fun fromRoute(route: String?): MovieScreens =
             when (route?.substringBefore("/")) {
                 ListScreen.name -> ListScreen
                 DetailScreen.name -> DetailScreen

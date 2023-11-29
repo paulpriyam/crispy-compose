@@ -15,8 +15,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.compose.day4.PortfolioListView
 import com.example.compose.day567.model.PortfolioData
+import com.example.compose.day8.navigation.MovieNavigation
+import com.example.compose.day8.navigation.MovieScreens
 import com.example.compose.ui.theme.ComposeTheme
 
 class MovieActivity : ComponentActivity() {
@@ -24,7 +27,7 @@ class MovieActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyApp {
-                MainContent()
+                MovieNavigation()
             }
         }
     }
@@ -35,14 +38,13 @@ fun MyApp(content: @Composable () -> Unit) {
     ComposeTheme {
         Surface(color = MaterialTheme.colors.background) {
             content()
-
         }
     }
 }
 
 @Preview
 @Composable
-fun MainContent() {
+fun MainContent(navController: NavController? = null) {
     Scaffold(modifier = Modifier,
         topBar = {
             TopAppBar(
@@ -56,10 +58,10 @@ fun MainContent() {
                     style = TextStyle(color = Color.White, fontSize = 20.sp)
                 )
             }
-        }) {  paddingValues ->
+        }) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
             PortfolioListView(
-                listOf<PortfolioData>(
+                listOf(
                     PortfolioData(
                         project = "Android Project",
                         description = "Sample Android Project"
@@ -93,8 +95,9 @@ fun MainContent() {
                         description = "Sample iOS Project"
                     ),
                 )
-            ){item->
+            ) { item ->
                 Log.d("TAG", "MainContent: itemCLicked $item")
+                navController?.navigate(route = MovieScreens.DetailScreen.name)
             }
         }
     }
