@@ -97,7 +97,7 @@ fun MainContent(navController: NavController? = null) {
                 )
             ) { item ->
                 Log.d("TAG", "MainContent: itemCLicked $item")
-                navController?.navigate(route = MovieScreens.DetailScreen.name)
+                navController?.navigate(route = MovieScreens.DetailScreen.name + "/${item.project}")
             }
         }
     }
