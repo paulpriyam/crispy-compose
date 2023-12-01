@@ -1,6 +1,7 @@
 package com.example.compose.day8.navigation
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -35,7 +36,12 @@ fun DetailsScreenMainContent(navController: NavController? = null, movieName: St
                 contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
             ) {
                 Row() {
-                    Image(imageVector = Icons.Default.ArrowBack, contentDescription = "Arrow back")
+                    Image(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Arrow back",
+                        modifier = Modifier.clickable {
+                            navController?.popBackStack()
+                        })
                 }
                 Text(
                     text = "Detail Screen",
@@ -51,9 +57,11 @@ fun DetailsScreenMainContent(navController: NavController? = null, movieName: St
                 .padding(padding)
                 .fillMaxSize()
         ) {
-            Column(modifier = Modifier.padding(padding),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center) {
+            Column(
+                modifier = Modifier.padding(padding),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
                 Text(text = "This is $movieName")
             }
         }

@@ -1,6 +1,5 @@
 package com.example.compose.day8
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -17,7 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.compose.day4.PortfolioListView
-import com.example.compose.day567.model.PortfolioData
+import com.example.compose.day567.model.MovieData
+import com.example.compose.day567.model.getMovieList
 import com.example.compose.day8.navigation.MovieNavigation
 import com.example.compose.day8.navigation.MovieScreens
 import com.example.compose.ui.theme.ComposeTheme
@@ -61,43 +61,10 @@ fun MainContent(navController: NavController? = null) {
         }) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
             PortfolioListView(
-                listOf(
-                    PortfolioData(
-                        project = "Android Project",
-                        description = "Sample Android Project"
-                    ),
-                    PortfolioData(
-                        project = "Android Project 2",
-                        description = "Sample Android Project"
-                    ),
-                    PortfolioData(
-                        project = "Flutter Project",
-                        description = "Sample Flutter Project"
-                    ),
-                    PortfolioData(
-                        project = "React Project",
-                        description = "Sample React Project"
-                    ),
-                    PortfolioData(
-                        project = "iOS Project",
-                        description = "Sample iOS Project"
-                    ),
-                    PortfolioData(
-                        project = "iOS Project",
-                        description = "Sample iOS Project"
-                    ),
-                    PortfolioData(
-                        project = "iOS Project",
-                        description = "Sample iOS Project"
-                    ),
-                    PortfolioData(
-                        project = "iOS Project",
-                        description = "Sample iOS Project"
-                    ),
-                )
+                getMovieList()
             ) { item ->
                 Log.d("TAG", "MainContent: itemCLicked $item")
-                navController?.navigate(route = MovieScreens.DetailScreen.name + "/${item.project}")
+                navController?.navigate(route = MovieScreens.DetailScreen.name + "/${item.name}")
             }
         }
     }
