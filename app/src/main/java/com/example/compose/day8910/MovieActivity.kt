@@ -1,4 +1,4 @@
-package com.example.compose.day8
+package com.example.compose.day8910
 
 import android.os.Bundle
 import android.util.Log
@@ -16,10 +16,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.compose.day4.PortfolioListView
-import com.example.compose.day567.model.MovieData
 import com.example.compose.day567.model.getMovieList
-import com.example.compose.day8.navigation.MovieNavigation
-import com.example.compose.day8.navigation.MovieScreens
+import com.example.compose.day8910.navigation.MovieNavigation
+import com.example.compose.day8910.navigation.MovieScreens
 import com.example.compose.ui.theme.ComposeTheme
 
 class MovieActivity : ComponentActivity() {

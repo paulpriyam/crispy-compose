@@ -1,4 +1,4 @@
-package com.example.compose.day8.navigation
+package com.example.compose.day8910.navigation
 
 enum class MovieScreens {
     ListScreen,

@@ -1,13 +1,12 @@
-package com.example.compose.day8.navigation
+package com.example.compose.day8910.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavArgument
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
-import com.example.compose.day8.ListScreen
+import com.example.compose.day8910.ListScreen
 
 
 @Composable

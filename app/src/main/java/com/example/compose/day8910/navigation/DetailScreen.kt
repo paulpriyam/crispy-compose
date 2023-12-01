@@ -1,4 +1,4 @@
-package com.example.compose.day8.navigation
+package com.example.compose.day8910.navigation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -16,8 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.compose.day8.MyApp
-import com.example.compose.ui.theme.ComposeTheme
+import com.example.compose.day8910.MyApp
 
 @Composable
 fun DetailScreen(navController: NavController, movieName: String?) {
