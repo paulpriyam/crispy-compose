@@ -9,7 +9,9 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import com.example.compose.day11.viewmodel.NoteViewModel
 import com.example.compose.ui.theme.ComposeTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NoteScreenActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
