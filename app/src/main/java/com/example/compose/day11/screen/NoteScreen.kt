@@ -1,5 +1,6 @@
 package com.example.compose.day11.screen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -12,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -19,10 +21,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.compose.R
 import com.example.compose.day11.component.NoteTextField
 import com.example.compose.day11.model.NoteModel
 import com.example.compose.day11.util.formatDate
-import java.time.format.DateTimeFormatter
 
 @Preview
 @Composable
@@ -90,10 +92,20 @@ fun NoteScreen(
             }
             Spacer(modifier = Modifier.height(16.dp))
             Divider()
-            LazyColumn {
-                items(items = notes) { item ->
-                    NoteRowItem(item) {
-                        removeNote.invoke(it)
+            if (notes.isEmpty()) {
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    text = "Pls add notes..",
+                    style = TextStyle(fontWeight = FontWeight.Medium, fontSize = 18.sp)
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Image(painter = painterResource(id = R.drawable.empty_list), contentDescription = "empty list")
+            } else {
+                LazyColumn {
+                    items(items = notes) { item ->
+                        NoteRowItem(item) {
+                            removeNote.invoke(it)
+                        }
                     }
                 }
             }
