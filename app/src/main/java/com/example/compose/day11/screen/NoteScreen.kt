@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.compose.day11.component.NoteTextField
 import com.example.compose.day11.model.NoteModel
+import com.example.compose.day11.util.formatDate
 import java.time.format.DateTimeFormatter
 
 @Preview
@@ -49,8 +50,7 @@ fun NoteScreen(
                         color = Color.Black,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Medium
-                    )
-                , textAlign = TextAlign.Center
+                    ), textAlign = TextAlign.Center
                 )
             }
         }
@@ -133,7 +133,7 @@ fun NoteRowItem(
             Text(text = item.note, style = MaterialTheme.typography.subtitle2)
             Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = item.date.format(DateTimeFormatter.ofPattern("EEE, d MMM")),
+                text = item.date.formatDate(),
                 style = MaterialTheme.typography.body1
             )
         }

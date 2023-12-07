@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import com.example.compose.day11.viewmodel.NoteViewModel
 import com.example.compose.ui.theme.ComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,7 +19,7 @@ class NoteScreenActivity : ComponentActivity() {
         setContent {
             NoteMyApp {
                 val viewModel: NoteViewModel by viewModels()
-                NoteScreen(viewModel.getAllNotes(),
+                NoteScreen(viewModel.notes.collectAsState().value,
                     addNote = {
                         viewModel.addNote(it)
                     }, removeNote = {
